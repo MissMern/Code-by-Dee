@@ -1,0 +1,81 @@
+[
+    {
+        "id": "1",
+        "image": "/images/1.jpg",
+        "name": "Nothing Gold Can Stay",
+        "description": "A short story about the fleeting nature of beauty and youth, inspired by the poem by Robert Frost.",
+        "author": "Robert Frost",
+        "contents": [
+            {
+                "type": "text",
+                "content": "Nature's first green is gold, \nHer hardest hue to hold. \nHer early leaf's a flower; \nBut only so an hour. \nThen leaf subsides to leaf. \nSo Eden sank to grief, \nSo dawn goes down to day. \nNothing gold can stay."
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "image": "/images/2.jpg",
+        "name":"Stopping By Woods On A Snowy Evening",
+
+        "description": "A poem that captures the beauty of a snowy evening and the contemplation of life’s responsibilities.",
+        "author": "Robert Frost",
+        "contents": [
+            {
+                "type": "text",
+                "content": "Whose woods these are I think I know. \nHis house is in the village though; \nHe will not see me stopping here \nTo watch his woods fill up with snow. \nMy little horse must think it queer \nTo stop without a farmhouse near, \nBetween the woods and frozen lake \nThe darkest evening of the year. \nHe gives his harness bells a shake \nTo ask if there is some mistake. \nThe only other sound's the sweep \nOf easy wind and downy flake. \nThe woods are lovely, dark and deep, \nBut I have promises to keep, \nAnd miles to go before I sleep, \nAnd miles to go before I sleep."
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "image": "/images/3.jpg",
+        "name":"The Road Not Taken",
+        "description": "A poem about choices and their consequences, reflecting on the paths we take in life.",
+        "author": "Robert Frost",
+        "contents":[
+            {
+                "type": "text",
+                "content": "Two roads diverged in a yellow wood, \nAnd sorry I could not travel both \nAnd be one traveler, long I stood \nAnd looked down one as far as I could \nTo where it bent in the undergrowth; \nThen took the other, as just as fair, \nAnd having perhaps the better claim, \nBecause it was grassy and wanted wear; \nThough as for that the passing there \nHad worn them really about the same, \nAnd both that morning equally lay \nIn leaves no step had trodden black. \nOh, I kept the first for another day! \nYet knowing how way leads on to way, \nI doubted if I should ever come back. \nI shall be telling this with a sigh \nSomewhere ages and ages hence: \nTwo roads diverged in a wood, and I— \nI took the one less traveled by, \nAnd that has made all the difference."
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "image": "/images/4.jpg",
+        "name":"Fire and Ice",
+        "description": "A poem that explores the themes of desire and hatred, and their potential to destroy the world.",
+        "author": "Robert Frost",
+        "contents":[
+            {
+                "type": "text",
+                "content": "Some say the world will end in fire, \nSome say in ice. \nFrom what I've tasted of desire \nI hold with those who favor fire. \nBut if it had to perish twice, \nI think I know enough of hate \nTo say that for destruction ice \nIs also great \nAnd would suffice."
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "image": "/images/5.jpg",
+        "name":"The Gift Outright",
+        "description": "A poem that reflects on the relationship between America and its land, and the sacrifices made for freedom.",
+        "author": "Robert Frost",
+        "contents":[
+            {
+                "type": "text",
+                "content": "The land was ours before we were the land's. \nShe was our land more than a hundred years \nBefore we were her people. She was ours \nIn Massachusetts, in Virginia, \nBut we were England's, still colonials, \nPossessing what we now no more possess \nThan a hundred years before we were. \nWe were the first to see the land as ours. \nWe were the first to see the land as ours."
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "image": "/images/6.jpg",
+        "name":"Mending Wall",
+        "description": "A poem that explores the theme of boundaries and the human tendency to build walls.",
+        "author": "Robert Frost",
+        "contents":[
+            {
+                "type": "text",
+                "content": "Something there is that doesn't love a wall, \nThat sends the frozen-ground-swell under it, \nAnd spills the upper boulders in the sun; \nAnd makes gaps even two can pass abreast. \nThe work of hunters is another thing: \nI have come after them and made repair \nWhere they have left not one stone on a stone, \nBut they would have the rabbit out of hiding, \nTo please the yelping dogs. The gaps I mean, \nNo one has seen them made or heard them made, \nBut at spring mending-time we find them there. \nI let my neighbor know beyond the hill; \nAnd on a day we meet to walk the line \nAnd set the wall between us once again. \nWe keep the wall between us as we go. \nTo each the boulders that have fallen to each. \nAnd some are loaves and some so nearly balls \nWe have to use a spell to make them balance: \n'Stay where you are until our backs are turned!' \nWe wear our fingers rough with handling them. \nOh, just another kind of outdoor game, \nOne on a side. It comes to little more: \nThere where it is we do not need the wall: \nHe is all pine and I am apple orchard. \nMy apple trees will never get across \nAnd eat the cones under his pines, I tell him. \nHe only says, 'Good fences make good neighbors.'"
+            }
+        ]
+    }
+]

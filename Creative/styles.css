@@ -1,0 +1,44 @@
+
+body {
+  background: #fdfaf6;
+  font-family: 'Georgia', serif;
+}
+h1 {
+  margin: 2rem 0;
+  color: #444;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background: linear-gradient(to right, #f8cdda, #1d2b64);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+}
+.card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: none;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card img {
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card-title {
+  font-weight: bold;
+  color: #2d2d2d;
+}
+.poem-content {
+  white-space: pre-line;
+  color: #555;
+  margin-top: 1rem;
+}
