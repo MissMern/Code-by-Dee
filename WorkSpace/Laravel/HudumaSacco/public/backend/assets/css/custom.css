@@ -1,0 +1,101 @@
+
+            .mb-2 {
+  margin-bottom: .1rem !important;
+}
+.page-title-box .page-title-right {
+  float: right;
+  margin-top: 8px !important;
+}
+
+.form-group{
+  margin-top:1%
+}
+
+
+hr {
+  margin: 0.2rem 0;
+  color: var(--ct-hr-color);
+  border: 0;
+    border-top-width: 0px;
+    border-top-style: none;
+    border-top-color: currentcolor;
+  border-top: 0 solid;
+  opacity: 1;
+}
+
+.page-title-box .page-title {
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 25px !important;
+  color: var(--ct-gray-900);
+}
+
+
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #d7d4d4 !important;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+            .navbar-custom {
+  background-color: #54B4D3 !important;}
+
+  .bg-danger {
+  --ct-bg-opacity: 1;
+  background-color: #c6bd9a !important;
+}
+
+.py-3 {
+  padding-top: 0.8rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+ th, td { white-space: nowrap; }
+       td.details-control {
+    background: url('{{asset("/adminbackend/details_open.png")}}') no-repeat center center;
+    cursor: pointer;
+}
+.table th {
+    padding: 0.35rem !important;
+   
+}
+tr.shown td.details-control {
+    background: url('{{asset("/adminbackend/details_close.png")}}') no-repeat center center;
+}
+
+td {
+  padding: 0px !important;
+  padding-left: 10px !important;
+  padding-top: 1px !important;
+  line-height: 1.028571429;
+  vertical-align: middle;
+  border-top:0.2px solid #ddd;
+}
+
+ .table-striped tbody tr:nth-of-type(2n+1) {
+    background-color:#d4e5f1;
+}
+
+
+.active > .page-link, .page-link.active {
+  z-index: 3;
+  color: var(--ct-pagination-active-color);
+  background-color: #54B4D3 !important;
+  border-color: var(--ct-pagination-active-border-color);
+}
+.navbar-custom {
+  height: 55px !important;
+  z-index: 1001;
+}
+
+.left-side-menu {
+ 
+  top: 55px !important;
+  
+}
