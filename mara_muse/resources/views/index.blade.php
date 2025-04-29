@@ -123,9 +123,7 @@
           <a class="nav-link" href="{{ route('about') }}">About Us</a>
 
           </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('pages.contact') }}">Contact Us</a>
-          </li>
+        
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Book With Us</a>
           </li>

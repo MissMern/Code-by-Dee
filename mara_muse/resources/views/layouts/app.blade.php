@@ -14,11 +14,22 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- In your <head> section -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
 
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
+        .nav-link.active {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 6px;
+}
+.nav-highlight {
+    background-color: rgba(144, 238, 144, 0.2); /* light green */
+    border-radius: 8px;
+    font-weight: 600;
+    color: #2d4831 !important; /* dark earthy green */
+}
         .about-section {
       padding: 80px 0;
       background: #fafafa;
@@ -46,65 +57,72 @@
 </head>
 <body style="background-color:#f5f5dc;">
     <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background: linear-gradient(to right, #2e8b57, #228b22, #6b8e23);">
+          
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: linear-gradient(to right, rgb(254, 253, 254), rgb(159, 247, 178)); height: 100px;">
     <div class="container">
-    <a class="navbar-brand text-white" href="{{ url('/') }}">
-    <img src="{{ asset('images/logo.png') }}" alt="Mara Muse Logo" style="height: 60px; width: auto;">
-    {{ config('app.name', 'Mara Muse') }}
-</a>
+        <a class="navbar-brand d-flex align-items-center ms-auto" href="{{ route('home') }}">
+            <img src="/images/logo.png" alt="Brand Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <h3 class="ms-2 mb-0" style="font-family: 'Comfortaa', sans-serif;">Mara Muse</h3>
+        </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-               @auth
-                <li class="nav-item dropdown">
-                    <a id="navbarCategoryDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
-                       
-                        <a class="dropdown-item" href="{{ route('addCategory') }}">Add Category</a>
-                        <a class="dropdown-item" href="{{ route('categories') }}">All Categories</a>
-                    </div>
-                </li>
+            <ul class="navbar-nav ms-auto align-items-center">
+                @auth
+                    <!-- Standard nav links -->
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active nav-highlight' : '' }}" href="{{ route('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active nav-highlight' : '' }}" href="{{ route('about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('gallery') ? 'active nav-highlight' : '' }}" href="{{ route('gallery') }}">Gallery</a>
+                    </li>
 
-                
-                <li class="nav-item dropdown">
-                    <a id="navbarPostDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Posts
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarPostDropdown">
-                        <a class="dropdown-item" href="{{ route('posts') }}">All Posts</a>
-                        <a class="dropdown-item" href="{{ route('addPost') }}">Add Post</a>
-                    </div>
-                </li>
-@endauth
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
+                    <!-- Categories dropdown -->
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                        <a id="navbarCategoryDropdown" class="nav-link dropdown-toggle {{ request()->is('categories*') ? 'active fw-bold text-primary' : '' }}"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                           style="font-family: 'Comfortaa', sans-serif;">
+                            Categories
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
+                           <a class="dropdown-item" href="{{ route('categories.index') }}">All Categories</a>
+                           <a class="dropdown-item" href="{{ route('categories.create') }}">Add Category</a>
+                           
+                        </div>
+                    </li>
 
+                    <!-- Posts dropdown -->
+                    <li class="nav-item dropdown">
+                        <a id="navbarPostDropdown" class="nav-link dropdown-toggle {{ request()->is('posts*') ? 'active fw-bold text-primary' : '' }}"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Posts
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarPostDropdown">
+                            <a class="dropdown-item" href="{{ route('posts.index') }}">All Posts</a>
+                            <a class="dropdown-item" href="{{ route('posts.create') }}">Add Post</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('pages.contact') ? 'active nav-highlight' : '' }}" href="{{ route('pages.contact') }}">Contact Us</a>
+                    </li>
+
+                    <!-- Authenticated user dropdown -->
+                    <li class="nav-item dropdown ms-3">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-outline-dark px-3 py-2 rounded"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fas fa-user me-2"></i> {{ Auth::user()->name }}
+                        </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -113,11 +131,27 @@
                             </form>
                         </div>
                     </li>
+                @endauth
+
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item ms-3">
+                            <a class="nav-link text-dark btn btn-outline-light bg-white px-3 py-2 rounded" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item ms-2">
+                            <a class="nav-link text-dark btn btn-outline-light bg-white px-3 py-2 rounded" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
                 @endguest
             </ul>
         </div>
     </div>
 </nav>
+
+
 
 
         <main class="py-4">

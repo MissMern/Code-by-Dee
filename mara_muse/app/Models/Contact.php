@@ -13,9 +13,7 @@ class Contact extends Model
         'subject',
         'message',
     ];
-    protected $table = 'contacts';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
+ 
 
 
 }

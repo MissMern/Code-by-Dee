@@ -11,20 +11,21 @@ class ContactController extends Controller
     {
         return view('contact');
     }
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required',
-            'message' => 'required',
-        ]);
+public function store(Request $request)
+{
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'subject' => 'required',
+        'message' => 'required',
+    ]);
 
-        // Store the contact message in the database
-        \App\Models\Contact::create($request->all());
+    // Store only validated data
+    \App\Models\Contact::create($validatedData);
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
-    }
+    return redirect()->back()->with('success', 'Message sent successfully!');
+}
+
     public function show()
     {
         $contacts = \App\Models\Contact::all();
@@ -59,6 +60,6 @@ class ContactController extends Controller
     //fuction to create the contact to be save in the db
     public function create()
     {
-        return view('contact.create');
+        return view('pages.contact');
     }
 }
