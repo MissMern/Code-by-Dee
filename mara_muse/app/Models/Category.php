@@ -15,6 +15,7 @@ class Category extends Model
         'status',
         'parent_id',
         'category_id',
+        'image',
     ];
     public function posts()
     {

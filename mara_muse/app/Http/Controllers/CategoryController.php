@@ -38,6 +38,7 @@ class CategoryController extends Controller
         //validate the request
         $request->validate([
             'name' => 'required|string|max:255',
+
             // 'description' => 'required|string|max:255',
 
             // 'user_id' => 'required|exists:users,id', // Ensure user exists
@@ -52,6 +53,15 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->user_id = auth()->id(); // assumes user is logged in
         $category->slug = Str::slug($request->name); // Generate a slug from the name
+        //image upload
+        if ($request->hasFile('image')) {
+            // Save the image to the public/images folder
+            $filename = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->move(public_path('images'), $filename);
+            $validated['image'] = 'images/' . $filename;
+        }
+        
+    
 
         $category->save();
         //redirect to the index page with a success message

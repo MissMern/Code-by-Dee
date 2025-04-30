@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <main class="container my-5">
+    <main class="container my-5" style="margin-top:100px; padding:50px;">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h2 class="text-center mb-4">Send Us a Message</h2>
