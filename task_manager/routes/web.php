@@ -18,5 +18,8 @@ Route::get('/view/{id}', [TasksController::class, 'show']);
 Route::get('/edit/{id}', [TasksController::class, 'edit']);
 Route::post('/update/{id}', [TasksController::class, 'update']);
 Route::delete('/delete/{id}', [TasksController::class, 'destroy']);
+Route::get('/search', [TasksController::class, 'search']);
+Route::put('/status/{id}', [TasksController::class, 'updateStatus']);
+
 
 // Route::post('/view', [App\Http\Controllers\TasksController::class, 'show']);

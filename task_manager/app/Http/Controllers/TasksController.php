@@ -81,11 +81,22 @@ class TasksController extends Controller
         //2. update sto db
         $task->name=$request->get('name');
         $task->description=$request->get('description');
-        $task->update();
+        $task->status=$request->get('status');
 
+        $task->update();
+//3, redirect kinda like store
         return redirect(url('index'))->with('success', 'Post created successfully!');
-        //3, redirect kinda like store
+        
     }
+    public function updateStatus(Request $request, $id)
+{
+    $task = Task::findOrFail($id);
+    $task->status = $request->status;
+    $task->save();
+
+    return redirect()->back()->with('success', 'Status updated successfully!');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -96,5 +107,14 @@ class TasksController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
         return redirect(url('index'))->with('success', 'Post created successfully!');
+    }
+    public function search(){
+        $query=request('search');
+        $tasks=[];
+        if($query){
+            $tasks=Task::where('name','like','%'.$query.'%')
+            ->orWhere('description','like','%'.$query.'%')->paginate(10);
+        }
+        return view('tasks.index', compact('tasks'));
     }
 }

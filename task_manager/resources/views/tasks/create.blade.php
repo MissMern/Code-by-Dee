@@ -17,4 +17,16 @@
 </div>
 </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('success'))
+<script>
+    Swal.fire({
+        title: 'Task added succesfully!',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+</script>
+@endif
 @endsection
