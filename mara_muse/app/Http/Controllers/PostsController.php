@@ -39,7 +39,7 @@ public function store(Request $request)
 {
     $validated = $request->validate([
         'title' => 'required|string|max:255',
-        'content' => 'required',
+        'content' => 'required|string',
         'category_id' => 'required|exists:categories,id',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
@@ -127,6 +127,16 @@ public function store(Request $request)
         Storage::delete($post->image); // Delete image
         $post->delete();
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+    }
+
+    public function search(){
+        $query=request('search');
+        $posts=[];
+        if($query){
+            $posts=Post::where('title','like','%'.$query.'%')
+            ->orWhere('content','like','%'.$query.'%')->paginate(10);
+        }
+        return view('posts.index', compact('posts'));
     }
 }
 //     {

@@ -9,8 +9,29 @@
         <h1 class="display-4 fw-bold">Mara Muse Blog Posts</h1>
     </div>
 </section>
+<form class="d-flex justify-content-center align-items-center gap-2 my-3 p-2 rounded shadow-sm bg-white" 
+      action="{{ url('/posts/search') }}" method="get" style="max-width: 940px; margin: auto;">
+
+    @csrf
+
+    <input 
+        class="form-control form-control-lg rounded-pill px-4" 
+        name="search" 
+        type="search" 
+        placeholder="🔍 Search content, titles..." 
+        aria-label="Search" 
+        style="flex: 1;"
+    >
+
+    <button 
+        class="btn btn-success btn-lg rounded-pill px-4" 
+        type="submit">
+        Search
+    </button>
+</form>
 
 <main class="container my-5">
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <h2 class="text-center mb-4">Recent Posts</h2>
@@ -47,7 +68,7 @@
 
                                     <!-- Content Preview -->
                                     <p class="card-text">
-                                        {{ Str::limit($post->content, 150) }}...
+                                        {!! Str::limit($post->content, 150) !!}...
                                     </p>
 
                                     <!-- Author & Date -->

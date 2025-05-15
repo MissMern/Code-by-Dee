@@ -10,6 +10,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center mb-4 text-black">Explore Our Safari Categories</h2>
+            <form class="d-flex justify-content-center align-items-center gap-2 my-3 p-2 rounded shadow-sm bg-white" 
+      action="{{ url('/categories/search') }}" method="get" style="max-width: 940px; margin: auto;">
+
+    @csrf
+
+    <input 
+        class="form-control form-control-lg rounded-pill px-4" 
+        name="search" 
+        type="search" 
+        placeholder="🔍 Search content, titles..." 
+        aria-label="Search" 
+        style="flex: 1;"
+    >
+
+    <button 
+        class="btn btn-success btn-lg rounded-pill px-4" 
+        type="submit">
+        Search
+    </button>
+</form>
             <table class="table table-bordered table-striped table-hover" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 8px;">
                 <thead class="bg-success text-white">
                     <tr>

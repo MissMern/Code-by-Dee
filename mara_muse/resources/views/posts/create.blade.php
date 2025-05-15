@@ -18,19 +18,21 @@
 
                 <!-- Title -->
                 <div class="mb-3">
-                    <label for="title" class="form-label fw-semibold">Post Title</label>
+                    <label for="title" class="form-label fw-bold">Post Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title" required>
                 </div>
 
                 <!-- Content -->
                 <div class="mb-3">
-                    <label for="content" class="form-label fw-semibold">Content</label>
-                    <textarea class="form-control" id="content" name="content" rows="5" placeholder="Enter post content"></textarea>
-                </div>
+    <label for="content" class="form-label fw-bold">Content</label>
+    <input id="content" type="hidden" name="content">
+    <trix-editor input="content"></trix-editor>
+</div>
+
 
                 <!-- Category -->
                 <div class="mb-3">
-                    <label for="category_id" class="form-label fw-semibold">Category</label>
+                    <label for="category_id" class="form-label fw-bold">Category</label>
                     <select class="form-select" id="category_id" name="category_id" required>
                         <option value="" disabled selected>Select a category</option>
                         @foreach($categories as $category)
@@ -41,7 +43,7 @@
 
                 <!-- Image Upload -->
                 <div class="mb-3">
-                    <label for="image" class="form-label fw-semibold">Post Image</label>
+                    <label for="image" class="form-label fw-bold">Post Image</label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/*">
                     <small class="form-text text-muted">Optional: Upload a featured image for the post.</small>
                 </div>

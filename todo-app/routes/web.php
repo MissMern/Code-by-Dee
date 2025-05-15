@@ -1,21 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\TodoController;
 
-// Redirect root URL to login page
+// Welcome page
 Route::get('/', function () {
-    return redirect('/login');
+    return view('welcome');
 });
-Route::get('/home', function () {
-    return redirect()->route('dashboard');
-})->name('home');
-Route::patch('/todos/{todo}/toggle', [TodoController::class, 'toggleStatus'])->name('todos.toggle');
-// Authentication routes (Login, Register, Logout)
-require __DIR__.'/auth.php';
 
-// To-Do Management Routes (Protected by 'auth' middleware)
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [TodoController::class, 'index'])->name('dashboard');
-    Route::resource('todos', TodoController::class);
-});
+// Show the create form
+Route::get('/todos/create', [TodoController::class, 'create'])->name('todos.create');
+
+// Show the edit form (we'll update this later to pass an ID)
+Route::get('/todos/{id}/edit', [TodoController::class, 'edit'])->name('todos.edit');
+
+// Store a new todo
+Route::post('/todos', [TodoController::class, 'store'])->name('todos.store');
+
+// List all todos
+Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
+
+// Update a todo
+Route::post('/todos/{id}', [TodoController::class, 'update'])->name('todos.update');
+//delete a todo
+Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
+// Show a single todo
+Route::get('/todos/{id}', [TodoController::class, 'show'])->name('todos.view');
+// Show the edit form

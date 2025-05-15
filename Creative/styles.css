@@ -42,3 +42,44 @@ h1 {
   color: #555;
   margin-top: 1rem;
 }
+/* styles/poem.css */
+
+.poem-card {
+  @apply max-w-3xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200;
+}
+
+.poem-image {
+  @apply w-full h-64 object-cover;
+}
+
+.poem-body {
+  @apply p-6;
+}
+
+.poem-title {
+  @apply text-4xl font-bold text-gray-900 mb-2;
+}
+
+.poem-author {
+  @apply text-md text-gray-500 italic mb-4;
+}
+
+.poem-description {
+  @apply text-sm text-gray-600 mb-6;
+}
+
+.poem-content {
+  @apply bg-gray-50 p-5 rounded-lg border border-gray-100 font-serif text-lg text-gray-800 leading-relaxed;
+}
+
+.poem-text {
+  @apply mb-4 whitespace-pre-line;
+}
+
+.poem-back {
+  @apply inline-block mt-6 px-4 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 transition;
+}
+.poem-image {
+  @apply w-full max-h-80 object-cover rounded-t-xl;
+}
+

@@ -18,13 +18,18 @@ $poems = json_decode($jsonData, true);
             <h5 class="card-title"><?= htmlspecialchars($poem['name']) ?></h5>
             <p class="text-muted"><?= htmlspecialchars($poem['author']) ?></p>
             <p class="card-text"><?= htmlspecialchars($poem['description']) ?></p>
+            <!-- display love, delete, and view buttons -->
+            <a href="love.php?id=<?= urlencode($poem['id']) ?>" class="btn btn-outline-danger">Love</a>
+            <a href="delete.php?id=<?= urlencode($poem['id']) ?>" class="btn btn-outline-danger">Delete</a>
+            <a href="edit.php?id=<?= urlencode($poem['id']) ?>" class="btn btn-outline-primary">Edit</a>
+            <a href="comment.php?id=<?= urlencode($poem['id']) ?>" class="btn btn-outline-primary">Comment</a>
             <a href="poem.php?id=<?= urlencode($poem['id']) ?>" class="btn btn-outline-primary">View Poem</a>
+            
           </div>
+          <!--div that has the love, edit and X colourful buttons-->
+          
         </div>
       </div>
     <?php endforeach; ?>
   </div>
 </div> <!-- End container -->
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

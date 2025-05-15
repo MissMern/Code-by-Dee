@@ -21,8 +21,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+ 
     public function index()
-    {
-        return view('home');
-    }
+{
+    $postsCount = \App\Models\Post::count();
+    $categoriesCount = \App\Models\Category::count();
+
+    return view('home', compact('postsCount', 'categoriesCount'));
+}
+
 }

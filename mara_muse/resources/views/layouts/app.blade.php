@@ -11,12 +11,15 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="{{ asset('build/assets/app.css') }}" rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script type="text/javascript" src="{{ url('build/assets/app.js') }}"></script>
 
     <style>
         /* General Body */
@@ -175,6 +178,10 @@
             padding-left: 15px;
             font-size: 1.2rem;
         }
+        .package-card img {
+            height: 200px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -195,18 +202,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto align-items-center">
-                        @auth
-                            <!-- Standard nav links -->
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('home') ? 'active nav-highlight' : '' }}" href="{{ route('home') }}">Home</a>
+                       
+                            @auth
+                            <li class="nav-item dropdown">
+                                <a id="navbarCategoryDropdown" class="nav-link dropdown-toggle {{ request()->is('categories*') ? 'active nav-highlight' : '' }}"
+                                   href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   style="font-family: 'Comfortaa', sans-serif;">
+                                    Our Services
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
+                                   <a class="dropdown-item" href="{{ route('gamedrive') }}">Gamedrive Booking</a>
+                                   <a class="dropdown-item" href="{{ route('vacations') }}">Vacation Packages</a>
+                                   <a class="dropdown-item" href="{{ route('gamedrive') }}">Hiking Packages</a>
+                                   <a class="dropdown-item" href="{{ route('categories.create') }}">Cruises</a>
+                                
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('about') ? 'active nav-highlight' : '' }}" href="{{ route('about') }}">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('gallery') ? 'active nav-highlight' : '' }}" href="{{ route('gallery') }}">Gallery</a>
-                            </li>
-
                             <li class="nav-item dropdown">
                                 <a id="navbarCategoryDropdown" class="nav-link dropdown-toggle {{ request()->is('categories*') ? 'active nav-highlight' : '' }}"
                                    href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -233,17 +244,15 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('pages.contact') ? 'active nav-highlight' : '' }}" href="{{ route('pages.contact') }}">Contact Us</a>
                             </li>
-
                             <li class="nav-item dropdown ms-3">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-outline-dark px-3 py-2 rounded"
                                    href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-user me-2"></i> {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('My Profile') }}
-                                    </a>
+                                <a class="dropdown-item" href="{{ route('profile.show') }}">
+                                         {{ __('My Profile') }}
+                                 </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -257,6 +266,16 @@
                         @endauth
 
                         @guest
+                        <!-- Standard nav links -->
+                             <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('home') ? 'active nav-highlight' : '' }}" href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('about') ? 'active nav-highlight' : '' }}" href="{{ route('about') }}">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('gallery') ? 'active nav-highlight' : '' }}" href="{{ route('gallery') }}">Gallery</a>
+                            </li>
                             @if (Route::has('login'))
                                 <li class="nav-item ms-3">
                                     <a class="nav-link text-dark btn btn-outline-light bg-white px-3 py-2 rounded" href="{{ route('login') }}">{{ __('Login') }}</a>
